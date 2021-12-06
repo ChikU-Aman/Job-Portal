@@ -25,6 +25,10 @@ namespace Job_Portal.Controllers
             return View();
         }
 
+        public void testgit()
+        {
+            Console.WriteLine("Hello GIT");
+        }
 
 
         [HttpPost]
