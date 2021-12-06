@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Job_Portal.Models.MyJobApp>
+
+@{
+    ViewData["Title"] = "ViewMyJob";
+    Layout = "_Layout";
+}
+
+<h1>ViewMyJob</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobLocation)
+            </td>
+            <td>
+                @{
+                    ViewBag.status = item.JobStatus;
+                    if (ViewBag.status == 1)
+                    {
+                        <p>Initital</p>
+                    }
+                    if (ViewBag.status == 2)
+                    {
+                        <p>Accepted</p>
+                    }
+                    if (ViewBag.status == 3)
+                    {
+                        <p>Rejected</p>
+                    }
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

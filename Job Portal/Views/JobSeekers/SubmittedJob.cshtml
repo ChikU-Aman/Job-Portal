@@ -1,0 +1,55 @@
+﻿@model Job_Portal.Models.Jobe
+
+@{
+    ViewData["Title"] = "SubmittedJob";
+    Layout = "_Layout";
+}
+
+<div>
+    <h3>Apply</h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayName("Job Title")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jobtitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Job Description")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JobDescription)
+        </dd>
+        <dt class="col-sm-2">
+            <label>Company Name</label>
+        </dt>
+        <dd class="col-sm-10">
+            <label>@ViewBag.Company</label>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Last Date")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JobLastDate)
+        </dd>
+        <dt class="col-sm-2">
+            Location
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.Location
+        </dd>
+    </dl>
+</div>
+<div>
+    <form asp-action="SubmittedJob">
+        <input type="hidden" asp-for="JobId" />
+        <input type="submit" value="Apply" class="btn btn-danger" />
+        <div style="color:red;">
+            @if (ViewBag.show != null)
+            {
+                @ViewBag.show
+            }
+        </div>
+    </form>
+</div>

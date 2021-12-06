@@ -1,0 +1,101 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/Index.css">
+</head>
+<body>
+    <div id="background">
+        <div id="nav">
+            <img src=" https://www.yash.com/wp-content/themes/html5blank-stable/images/yash-logo-new.svg" alt="">
+            <div id="links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Login
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a asp-controller="JobSeekers" asp-action="LoginPage">Login As Job Seeker</a>
+                        <a asp-controller="Employeers" asp-action="LoginPageE">Login As Employeer</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Register
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a asp-controller="JobSeekers" asp-action="Create">Register As Job Seeker</a>
+                        <a asp-controller="Employeers" asp-action="Create">Register As Employeer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            @RenderBody()
+        </div>
+
+        <div id="lastpart">
+            <div id="rights">
+                <div id="tops">
+                    <h1>YASH Technologies</h1>
+                </div>
+                <div id="mid">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-instagram"></i>
+
+                </div>
+                <div id="bottoms">
+                    <p>Copyright © 2020 All rights reserved</p>
+                </div>
+            </div>
+            <div id="lefts">
+                <div id="head">
+                    <h1>Quick Links</h1>
+                </div>
+                <div id="linked">
+                    <div class="link">
+                        <i class="fa fa-angle-double-right"></i>
+                        <p>Home</p>
+                    </div>
+
+
+                    <div class="link">
+                        <i class="fa fa-angle-double-right"></i>
+                        <p>Job Seeker Login</p>
+                    </div>
+                    <div class="link">
+                        <i class="fa fa-angle-double-right"></i>
+                        <p>Employee Login</p>
+                    </div>
+                </div>
+            </div>
+            <div id="middle">
+                <div id="firsts">
+                    <h1>Contact Us</h1>
+                </div>
+                <div id="seconds">
+                    <i class="fa fa-map-marker"></i>
+                    <p>
+                        Crystal IT PARK
+                        STP-1, Ground Floor, IT/ITES- SEZ
+                        Near Bhawar Kuwan Square
+                        Indore – 452001 (M.P)
+                        Phone: 0731-6636363
+                    </p>
+                </div>
+
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Job_Portal.Models.Candidate>
+
+@{
+    ViewData["Title"] = "ViewCandidate";
+    Layout = "_Layout";
+}
+
+<h1>View Candidates</h1>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicantName)
+            </td>
+            <td>
+                @{
+                    ViewBag.status = item.Status;
+                    if (ViewBag.status == 1)
+                    {
+                        <p>Initital</p>
+                    }
+                    if (ViewBag.status == 2)
+                    {
+                        <p>Accepted</p>
+                    }
+                    if (ViewBag.status == 3)
+                    {
+                        <p>Rejected</p>
+                    }
+                }
+            </td>
+            <td>
+                <a asp-action="ViewCandidateEdit" asp-route-id="@item.ApplicantName">Show Details</a>
+            </td>
+</tr>
+}
+    </tbody>
+</table>

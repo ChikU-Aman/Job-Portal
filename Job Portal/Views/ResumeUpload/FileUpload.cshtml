@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "FileUpload";
+    Layout = "_Layout";
+}
+
+<h1>FileUpload</h1>
+
+<div>
+    <h4>Resume Upload</h4>
+    <form asp-controller="ResumeUpload" asp-action="UploadResume"
+          enctype="multipart/form-data" method="post">
+        <input type="file" name="file" />
+        <div style="color:red">@ViewBag.show</div>
+        @{
+            if (ViewBag.error != null)
+            {
+                <div style="color:red;">@ViewBag.error</div>
+            }
+            if (ViewBag.success != null)
+            {
+                <div style="color:green;">@ViewBag.success</div>
+            }
+        }
+        <button type="submit">Submit</button>
+    </form>
+</div>

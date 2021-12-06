@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Job_Portal.Models.Jobe>
+
+@{
+    ViewData["Title"] = "AllJob";
+    Layout = "_Layout";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Job Title")
+            </th>
+            <th>
+                @Html.DisplayName("Job Description")
+            </th>
+            <th>
+                @Html.DisplayName("Company Name")
+            </th>
+            <th>
+                @Html.DisplayName("Job Location")
+            </th>
+            <th>
+                @Html.DisplayName("Last Date")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            {
+                DateTime t1 = item.JobLastDate;
+                DateTime t2 = DateTime.Now;
+                if (DateTime.Compare(t1, t2) >= 0)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jobtitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JobDescription)
+                        </td>
+                        <td>
+                            @foreach (var c in ViewBag.comp)
+                            {
+                                if (c.Key == item.EmployerId)
+                                {
+                                    <label>@c.Value</label>
+                                    break;
+                                }
+                            }
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JobLocationNavigation.LocationName)
+                        </td>
+                        @{ 
+                            var x = item.JobLastDate.ToLongDateString();
+                        }
+                        <td>
+                            @x
+                        </td>
+                        <td>
+                            <a asp-action="SubmittedJob" asp-route-id="@item.JobId">Apply</a>
+                        </td>
+                    </tr>
+                }
+               }
+        }
+    </tbody>
+</table>

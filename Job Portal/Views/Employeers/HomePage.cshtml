@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Job_Portal.Models.Jobe>
+
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "_Layout";
+}
+<h1>HomePage</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Job Title")
+            </th>
+            <th>
+                @Html.DisplayName("Job Description")
+            </th>
+            <th>
+                @Html.DisplayName("Last Date")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jobtitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobDescription)
+            </td>
+            @{
+                var x = item.JobLastDate.ToLongDateString();
+            }
+            <td>
+                @x
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobLocationNavigation.LocationName)
+            </td>
+            <td>
+                <a asp-action="ViewCandidate" asp-route-id="@item.JobId">Candidates</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
