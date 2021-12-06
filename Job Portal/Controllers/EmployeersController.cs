@@ -27,7 +27,7 @@ namespace Job_Portal.Controllers
 
         public void testgit()
         {
-            Console.WriteLine("Hello GIT");
+            Console.WriteLine("Hello GITHUB");
         }
 
 
